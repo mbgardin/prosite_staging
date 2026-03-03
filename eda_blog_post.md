@@ -71,7 +71,7 @@ Awareness of these constraints prevents us from making absolute statements about
 ## Reproducibility
 The completely automated, end-to-end data pipeline is fully available on GitHub. Anyone can pull the raw data, perform the cleaning, and generate the CSV themselves using Python.
 
-**GitHub Repository:** [PokeViability Repository](https://github.com/yourusername/PokeViability)
+**GitHub Repository:** [PokeViability Repository](https://github.com/mbgardin/PokeViability)
 
 To reproduce this analysis locally, simply follow these steps:
 1. Clone the repository listed above.
