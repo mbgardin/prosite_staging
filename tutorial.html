@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how to use Python regular expressions (regex) for data cleaning — a practical tutorial by Monte Gardiner covering re.search, re.findall, re.sub, and phone number normalization.">
+    <title>Regex for Data Cleaning | Monte Gardiner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="article.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>MG<span class="logo-bracket"> /&gt;</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="index.html#blog" class="nav-link active">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <div class="article-header-bg"></div>
+        <div class="container">
+            <a href="index.html#blog" class="article-back">← Back to Blog</a>
+            <div class="article-meta">
+                <span class="article-category">Tutorial</span>
+                <span class="article-date">Python · Data Cleaning</span>
+            </div>
+            <h1 class="article-title">Mastering Regular Expressions for Data Cleaning</h1>
+            <p class="article-subtitle">A practical guide to wielding the power of regex in Python to transform messy, inconsistent data into clean, analysis-ready resources.</p>
+            <div class="article-author">
+                <img src="images/monte-headshot.jpg" alt="Monte Gardiner" class="article-author-img">
+                <div>
+                    <span class="article-author-name">Monte Gardiner</span>
+                    <span class="article-author-role">Statistics & Data Science · BYU</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Body -->
+    <main class="article-body">
+        <div class="container article-container">
+
+            <div class="article-banner">
+                <img src="images/regex_banner.png" alt="Regex for Data Cleaning">
+            </div>
+
+            <section class="article-section">
+                <h2 id="introduction">Introduction</h2>
+                <p>If you have ever spent hours manually fixing cell after cell in Excel, or writing endless <code>if-else</code> statements and <code>.split()</code> chains in Python to extract specific information from a text file, you know the pain of messy data. It is often said that data scientists spend 80% of their time cleaning data and only 20% analyzing it. While that statistic might be anecdotal, the struggle is very real.</p>
+                <p>Enter <strong>Regular Expressions</strong> (often shortened to <strong>Regex</strong>). Regex is a sequence of characters that specifies a search pattern. It is essentially a mini-programming language embedded within other languages (like Python, R, and SQL) designed specifically for text processing.</p>
+                <p>In this tutorial, we will explore how to use Regex in Python to turn a nightmare dataset into a clean, analysis-ready resource. We will cover the basic syntax, the capabilities of Python's <code>re</code> module, and walk through a practical example of cleaning unstructured contact information.</p>
+            </section>
+
+            <section class="article-section">
+                <h2 id="why-learn-regex">Why Learn Regex?</h2>
+                <p>You might be wondering, "Can't I just use <code>.replace()</code> or string slicing?" For simple cases, absolutely. But Regex shines when you need to match <strong>patterns</strong>, not just specific substrings.</p>
+                <p>For example, finding "John" in a text is easy. Finding "any word that starts with J, consists of 4 letters, and is followed by a number" is a job for Regex.</p>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">💡 Why Regex Matters</div>
+                    <ol>
+                        <li><strong>Save you time:</strong> Automate complex text replacements that would take hours manually.</li>
+                        <li><strong>Reduce code complexity:</strong> Replace 20 lines of string manipulation logic with 1 or 2 lines of Regex.</li>
+                        <li><strong>Enhance your data wrangling toolkit:</strong> Handle formats like dates, emails, phone numbers, and URLs with ease.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <h2 id="building-blocks">The Building Blocks of Regex</h2>
+                <p>Regex can look intimidating at first—like a cat walked across your keyboard. However, it is built on a few core symbols. Here is a reference table for the most common ones you will encounter in data science:</p>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>.</code></td><td>Dot</td><td>Matches any single character (except newline)</td><td><code>a.c</code></td><td>"abc", "a@c", "a c"</td></tr>
+                            <tr><td><code>*</code></td><td>Asterisk</td><td>Matches 0 or more of the preceding element</td><td><code>ab*c</code></td><td>"ac", "abc", "abbc"</td></tr>
+                            <tr><td><code>+</code></td><td>Plus</td><td>Matches 1 or more of the preceding element</td><td><code>ab+c</code></td><td>"abc", "abbc" (not "ac")</td></tr>
+                            <tr><td><code>?</code></td><td>Question Mark</td><td>Matches 0 or 1 of the preceding element</td><td><code>colou?r</code></td><td>"color", "colour"</td></tr>
+                            <tr><td><code>\d</code></td><td>Digit</td><td>Matches any digit (0-9)</td><td><code>\d\d</code></td><td>"42", "07"</td></tr>
+                            <tr><td><code>\w</code></td><td>Word Character</td><td>Matches any alphanumeric character</td><td><code>\w+</code></td><td>"Hello_123"</td></tr>
+                            <tr><td><code>\s</code></td><td>Whitespace</td><td>Matches any whitespace</td><td><code>Hello\sWorld</code></td><td>"Hello World"</td></tr>
+                            <tr><td><code>^</code></td><td>Caret</td><td>Anchors to the start of the string</td><td><code>^Hello</code></td><td>"Hello world"</td></tr>
+                            <tr><td><code>$</code></td><td>Dollar</td><td>Anchors to the end of the string</td><td><code>end$</code></td><td>"The end"</td></tr>
+                            <tr><td><code>[]</code></td><td>Character Set</td><td>Matches any one character inside the brackets</td><td><code>[aeiou]</code></td><td>"a", "e"</td></tr>
+                            <tr><td><code>()</code></td><td>Group</td><td>Groups patterns together (captures the match)</td><td><code>(abc)+</code></td><td>"abc", "abcabc"</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Understanding these building blocks is key to constructing powerful patterns.</p>
+            </section>
+
+            <section class="article-section">
+                <h2 id="using-regex-python">Using Regex in Python</h2>
+                <p>Python has a built-in module called <code>re</code> for working with regular expressions. Let's look at the three most useful functions for data cleaning: <code>re.search()</code>, <code>re.findall()</code>, and <code>re.sub()</code>.</p>
+                <p>First, you need to import the library:</p>
+
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">python</span>
+                    </div>
+                    <pre><code><span class="kw">import</span> re</code></pre>
+                </div>
+
+                <h3>1. Finding a Match: <code>re.search()</code></h3>
+                <p><code>re.search()</code> scans the string and returns the <strong>first</strong> location where the pattern produces a match. It returns a "Match object" if successful, or <code>None</code> if not.</p>
+
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">python</span>
+                    </div>
+                    <pre><code>text = <span class="str">"The price is $45.99 for the item."</span>
+<span class="cmt"># Pattern: \$ matches a literal dollar sign, \d+ matches digits, \. matches literal dot</span>
+pattern = <span class="str">r"\$\d+\.\d+"</span>
+
+match = re.search(pattern, text)
+
+<span class="kw">if</span> match:
+    <span class="fn">print</span>(<span class="str">f"Found match: </span>{match.group()}<span class="str">"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"No match found."</span>)
+
+<span class="cmt"># Output: Found match: $45.99</span></code></pre>
+                </div>
+
+                <div class="callout callout-note">
+                    <div class="callout-title">📝 Note</div>
+                    <p>We use <code>r"string"</code> to denote a "raw string" in Python, which handles backslashes correctly for regex.</p>
+                </div>
+
+                <h3>2. Finding All Matches: <code>re.findall()</code></h3>
+                <p>Often you want to extract <em>all</em> instances of a pattern, not just the first one. <code>re.findall()</code> returns a list of strings.</p>
+
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">python</span>
+                    </div>
+                    <pre><code>text = <span class="str">"Contact emails: support@example.com, sales@example.org, hr@company.net"</span>
+<span class="cmt"># Pattern: \w+ matches username, @ matches @, [\w\.]+ matches domain</span>
+email_pattern = <span class="str">r"[\w\.-]+@[\w\.-]+"</span>
+
+emails = re.findall(email_pattern, text)
+<span class="fn">print</span>(emails)
+
+<span class="cmt"># Output: ['support@example.com', 'sales@example.org', 'hr@company.net']</span></code></pre>
+                </div>
+
+                <h3>3. Replacing Text: <code>re.sub()</code></h3>
+                <p>This is the search-and-replace function. It replaces occurrences of the pattern with a replacement string.</p>
+
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">python</span>
+                    </div>
+                    <pre><code>date_string = <span class="str">"Report generated on 2023-10-27"</span>
+<span class="cmt"># Change YYYY-MM-DD to DD/MM/YYYY</span>
+<span class="cmt"># We use groups () to capture parts of the date</span>
+pattern = <span class="str">r"(\d{4})-(\d{2})-(\d{2})"</span>
+replacement = <span class="str">r"\3/\2/\1"</span>  <span class="cmt"># \1 refers to the first group, etc.</span>
+
+new_string = re.sub(pattern, replacement, date_string)
+<span class="fn">print</span>(new_string)
+
+<span class="cmt"># Output: Report generated on 27/10/2023</span></code></pre>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <h2 id="practical-example">Practical Example: Cleaning Messy Phone Numbers</h2>
+                <p>Let's apply this to a realistic scenario. Imagine you scraped a website or received a dataset from a client with a "Phone Number" column that is completely inconsistent.</p>
+                <p>Here is our raw data:</p>
+
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">python</span>
+                    </div>
+                    <pre><code>phone_numbers = [
+    <span class="str">"Call me at 555-0199"</span>,
+    <span class="str">"(555) 123-4567"</span>,
+    <span class="str">"555.987.6543"</span>,
+    <span class="str">"Phone: 555 123 4567"</span>,
+    <span class="str">"No number here"</span>,
+    <span class="str">"+1-555-555-5555"</span>
+]</code></pre>
+                </div>
+
+                <p>We want to extract just the numbers and format them as <code>(XXX) XXX-XXXX</code>.</p>
+
+                <h3>Step 1: Analyze the Pattern</h3>
+                <p>We can see a few common structures:</p>
+                <ul>
+                    <li>Optional area code (3 digits)</li>
+                    <li>Separators like dash <code>-</code>, dot <code>.</code>, space, or parens <code>()</code></li>
+                    <li>A 3-digit prefix</li>
+                    <li>A 4-digit line number</li>
+                </ul>
+
+                <h3>Step 2: Build the Regex</h3>
+                <p>The easiest cleaning pattern in Python is to <strong>remove everything that is NOT a digit</strong>, and then format the remaining digits.</p>
+
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">python</span>
+                    </div>
+                    <pre><code>cleaned_numbers = []
+
+<span class="kw">for</span> entry <span class="kw">in</span> phone_numbers:
+    <span class="cmt"># re.sub with [^\d] means "replace anything that is NOT a digit" with empty string</span>
+    digits_only = re.sub(<span class="str">r"[^\d]"</span>, <span class="str">""</span>, entry)
+
+    <span class="cmt"># Handle country code prefix</span>
+    <span class="kw">if</span> <span class="fn">len</span>(digits_only) == <span class="num">11</span> <span class="kw">and</span> digits_only.startswith(<span class="str">'1'</span>):
+         digits_only = digits_only[<span class="num">1</span>:]
+
+    <span class="kw">if</span> <span class="fn">len</span>(digits_only) == <span class="num">10</span>:
+        formatted = <span class="str">f"(</span>{digits_only[:<span class="num">3</span>]}<span class="str">) </span>{digits_only[<span class="num">3</span>:<span class="num">6</span>]}<span class="str">-</span>{digits_only[<span class="num">6</span>:]}<span class="str">"</span>
+        cleaned_numbers.append(formatted)
+    <span class="kw">else</span>:
+        cleaned_numbers.append(<span class="str">"Invalid Format"</span>)
+
+<span class="fn">print</span>(cleaned_numbers)</code></pre>
+                </div>
+
+                <div class="code-block output-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">output</span>
+                    </div>
+                    <pre><code>['Invalid Format', '(555) 123-4567', '(555) 987-6543', '(555) 123-4567', 'Invalid Format', '(555) 555-5555']</code></pre>
+                </div>
+
+                <p>Look at the first entry <code>"Call me at 555-0199"</code>. It only had 7 digits. Our logic correctly marked it as "Invalid Format" because it's missing an area code.</p>
+
+                <h3>Step 3: Advanced Extraction</h3>
+                <p>What if we wanted to <em>extract</em> the number from the text first, rather than just cleaning the whole string?</p>
+
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">python</span>
+                    </div>
+                    <pre><code>text = <span class="str">"Reach us at (555) 123-4567 for support."</span>
+<span class="cmt"># Pattern explanation:</span>
+<span class="cmt"># \(?     : Optional opening parenthesis</span>
+<span class="cmt"># (\d{3}) : Capture Group 1: Area code (3 digits)</span>
+<span class="cmt"># \)?     : Optional closing parenthesis</span>
+<span class="cmt"># [\s\.-]?: Optional separator (space, dot, or dash)</span>
+<span class="cmt"># (\d{3}) : Capture Group 2: Prefix (3 digits)</span>
+<span class="cmt"># [\s\.-]?: Optional separator</span>
+<span class="cmt"># (\d{4}) : Capture Group 3: Line number (4 digits)</span>
+pattern = <span class="str">r"\(?(\d{3})\)?[\s\.-]?(\d{3})[\s\.-]?(\d{4})"</span>
+
+match = re.search(pattern, text)
+<span class="kw">if</span> match:
+    area_code, prefix, line = match.groups()
+    <span class="fn">print</span>(<span class="str">f"Extracted: </span>{area_code}<span class="str">-</span>{prefix}<span class="str">-</span>{line}<span class="str">"</span>)
+
+<span class="cmt"># Output: Extracted: 555-123-4567</span></code></pre>
+                </div>
+
+                <p>This approach is much more precise and avoids accidentally picking up stray numbers (like a year "2023" or an ID "12345") that don't look like phone numbers.</p>
+            </section>
+
+            <section class="article-section">
+                <h2 id="conclusion">Conclusion and Next Steps</h2>
+                <p>Regular expressions are a fundamental skill for any data scientist. While they can be tricky to write initially, they provide a level of precision and power that standard string methods cannot match.</p>
+
+                <div class="callout callout-success">
+                    <div class="callout-title">✅ What We Covered</div>
+                    <ul>
+                        <li><strong>Core Regex symbols</strong> like <code>\d</code>, <code>*</code>, <code>+</code>, and character sets <code>[]</code>.</li>
+                        <li><strong>Python usage</strong> with <code>re.search</code>, <code>re.findall</code>, and <code>re.sub</code>.</li>
+                        <li><strong>A cleaning workflow</strong> to normalize inconsistent data.</li>
+                    </ul>
+                </div>
+
+                <h3>Call to Action</h3>
+                <p>Now it's your turn!</p>
+                <ol>
+                    <li><strong>Review your data:</strong> Look at the datasets you are using for your class projects. Are there messy text columns?</li>
+                    <li><strong>Practice:</strong> Try to write a regex to extract all the hashtags from a sample tweet string (Hint: starts with <code>#</code>).</li>
+                    <li><strong>Explore:</strong> Check out <a href="https://regex101.com/" target="_blank" rel="noopener">Regex101</a>, an amazing interactive tool to test and debug your patterns in real-time.</li>
+                </ol>
+                <p>Mastering regex takes practice, but once you "speak the language," you'll see patterns everywhere. Happy coding!</p>
+            </section>
+
+            <!-- Article Footer Navigation -->
+            <div class="article-nav">
+                <a href="index.html#blog" class="article-nav-link">
+                    <span class="article-nav-direction">← Back</span>
+                    <span class="article-nav-title">All Posts</span>
+                </a>
+                <a href="eda_blog_post.html" class="article-nav-link article-nav-next">
+                    <span class="article-nav-direction">Next →</span>
+                    <span class="article-nav-title">Pokémon Viability Analysis</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    <span class="footer-logo"><span class="logo-bracket">&lt;</span>MG<span class="logo-bracket"> /&gt;</span></span>
+                    Built with ☕ and curiosity · © 2026 Monte Gardiner
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
