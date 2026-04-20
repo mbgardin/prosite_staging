@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Analyzing how base stats and typing relate to competitive Pokémon viability in the Generation 4 metagame — a data-driven exploration by Monte Gardiner.">
+    <title>Competitive Pokémon Viability | Monte Gardiner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="article.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>MG<span class="logo-bracket"> /&gt;</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#blog" class="nav-link active">Blog</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <div class="article-header-bg"></div>
+        <div class="container">
+            <a href="index.html#blog" class="article-back">← Back to Blog</a>
+            <div class="article-meta">
+                <span class="article-category">Data Acquisition</span>
+                <span class="article-date">Python · Web Scraping · API</span>
+            </div>
+            <h1 class="article-title">Analyzing the Building Blocks of Competitive Pokémon Viability in Generation 4
+            </h1>
+            <p class="article-subtitle">How do base stats and typing relate to competitive viability? A data-driven deep
+                dive into the Gen 4 metagame using PokéAPI and Smogon usage statistics.</p>
+            <div class="article-author">
+                <img src="images/monte-headshot.jpg" alt="Monte Gardiner" class="article-author-img">
+                <div>
+                    <span class="article-author-name">Monte Gardiner</span>
+                    <span class="article-author-role">Statistics & Data Science · BYU</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Body -->
+    <main class="article-body">
+        <div class="container article-container">
+
+            <section class="article-section">
+                <h2 id="introduction">Introduction and Motivation</h2>
+                <p>The realm of competitive Pokémon is a fascinating microcosm of strategic planning, resource
+                    management, and complex game theory. Unlike a traditional playthrough where simply picking your
+                    favorites might be enough to defeat the Elite Four, the competitive scene requires players to
+                    rigorously evaluate the statistical advantages, typings, movepools, and abilities of each creature.
+                </p>
+                <p>Generation 4 (Diamond, Pearl, and Platinum) represents a pivotal moment in the franchise's history.
+                    It introduced the physical/special split—a mechanic that revolutionized how attacks were calculated,
+                    fundamentally changing the viability of many existing and new Pokémon. This generation provides an
+                    excellent case study precisely because it established many of the foundational tactical concepts
+                    that define modern competitive play.</p>
+                <p>To keep the game balanced and enjoyable, the competitive community, primarily organized by
+                    <strong>Smogon University</strong>, implemented a tier system. This system organizes Pokémon based
+                    on their usage rates in competitive formats. The most prominent tier, OverUsed (OU), represents the
+                    central metagame, containing the strongest and most frequently utilized Pokémon. By analyzing the
+                    traits of Pokémon within this tier compared to those relegated to lower tiers, we can quantifiably
+                    determine what makes a Pokémon competitively viable.
+                </p>
+            </section>
+
+            <section class="article-section">
+                <h2 id="motivating-question">Motivating Question</h2>
+                <div class="callout callout-info">
+                    <div class="callout-title">🎯 Core Question</div>
+                    <p><strong>How do base stats and typing relate to competitive viability in the Gen 4
+                            metagame?</strong></p>
+                    <p>We want to understand to what extent raw numbers (Base Stat Totals) and defensive/offensive
+                        elemental typings correlate with a Pokémon achieving OverUsed (OU) status, and whether these
+                        readily accessible metrics are deterministic indicators of competitive success.</p>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <h2 id="data-sources">Data Sources and Ethics</h2>
+                <p>This project leverages two robust, publicly available data sources:</p>
+
+                <div class="data-source-grid">
+                    <div class="data-source-card">
+                        <div class="data-source-icon">🔗</div>
+                        <h4><a href="https://pokeapi.co/" target="_blank" rel="noopener">PokéAPI</a></h4>
+                        <p>A widely respected, open RESTful API that provides granular, encyclopedic baseline statistics
+                            for every Pokémon. We collected Base Stats and Elemental Typings from this source.</p>
+                    </div>
+                    <div class="data-source-card">
+                        <div class="data-source-icon">📊</div>
+                        <h4><a href="https://www.smogon.com/stats/" target="_blank" rel="noopener">Smogon Usage
+                                Stats</a></h4>
+                        <p>Monthly JSON dumps detailing usage frequencies across tier ladders. Used to define the
+                            "target variable" of our analysis (whether a Pokémon is OU or not).</p>
+                    </div>
+                </div>
+
+                <div class="callout callout-note">
+                    <div class="callout-title">⚖️ Ethical Considerations</div>
+                    <p>Our data collection scripts strictly implement rate-limiting via time delays to avoid
+                        overwhelming community-hosted APIs. All data utilized is completely objective, public game data
+                        involving no PII or sensitive material.</p>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <h2 id="data-collection">Data Collection Overview</h2>
+                <p>Building the analytical dataset involved a multi-step pipeline requiring careful merging of varied
+                    data structures:</p>
+                <ul>
+                    <li><strong>API Paging & Flattening:</strong> We iterated through the first 493 National Pokédex
+                        entries via PokéAPI, flattening deeply nested JSON responses to extract raw attributes like HP,
+                        Attack, and typing arrays.</li>
+                    <li><strong>Web Scraping & Parsing:</strong> We programmatically scraped the latest available Gen 4
+                        monthly folder from the Smogon Stats index, downloading the comprehensive JSON payload for each
+                        competitive tier (Ubers, OU, UU, NU).</li>
+                    <li><strong>Data Normalization:</strong> A major challenge was name discrepancy (e.g., "Mr. Mime" vs
+                        "mr-mime"). We applied a strict string normalization function across both data sources to ensure
+                        alignment.</li>
+                    <li><strong>Joining & Engineering:</strong> With consistent keys, the datasets were left-joined.
+                        Missing usage values were imputed with 0.0 percentages. We engineered critical evaluation fields
+                        like <code>bst</code> (Base Stat Total) and <code>is_ou</code> (OU tier indicator).</li>
+                </ul>
+            </section>
+
+            <section class="article-section">
+                <h2 id="dataset-overview">Final Dataset Overview</h2>
+                <p>The final output, <code>pokemon_gen4_competitive.csv</code>, encapsulates the entire Generation 4
+                    ecosystem.</p>
+
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span class="stat-card-number">493</span>
+                        <span class="stat-card-label">Total Rows</span>
+                        <span class="stat-card-desc">Bulbasaur to Arceus</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-card-number">25</span>
+                        <span class="stat-card-label">Total Columns</span>
+                        <span class="stat-card-desc">Stats, types, usage</span>
+                    </div>
+                </div>
+
+                <h3>Data Dictionary</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Column</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>id</code></td>
+                                <td>Numeric</td>
+                                <td>National Pokédex number</td>
+                            </tr>
+                            <tr>
+                                <td><code>name_key</code></td>
+                                <td>Categorical</td>
+                                <td>Normalized identifier for joining</td>
+                            </tr>
+                            <tr>
+                                <td><code>type1</code> / <code>type2</code></td>
+                                <td>Categorical</td>
+                                <td>Primary and secondary typings</td>
+                            </tr>
+                            <tr>
+                                <td><code>hp</code>, <code>attack</code>, <code>defense</code>, <code>sp_attack</code>,
+                                    <code>sp_defense</code>, <code>speed</code>
+                                </td>
+                                <td>Numeric</td>
+                                <td>Individual base statistics</td>
+                            </tr>
+                            <tr>
+                                <td><code>bst</code></td>
+                                <td>Numeric</td>
+                                <td>Engineered sum of all core stats</td>
+                            </tr>
+                            <tr>
+                                <td><code>usage_ou</code></td>
+                                <td>Numeric</td>
+                                <td>Usage rate in the OU tier (%)</td>
+                            </tr>
+                            <tr>
+                                <td><code>is_ou</code></td>
+                                <td>Boolean</td>
+                                <td>Engineered 1/0 OU presence indicator</td>
+                            </tr>
+                            <tr>
+                                <td><code>formats_used_count</code></td>
+                                <td>Numeric</td>
+                                <td>Number of tiers with any recorded usage</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <h2 id="observations">Exploratory Observations</h2>
+                <p>To begin unraveling our motivating question, we generated several visualizations.</p>
+
+                <div class="figure">
+                    <img src="images/bst_histogram.png" alt="Distribution of Base Stat Totals (BST)">
+                    <figcaption>Figure 1: Distribution of Base Stat Totals (BST) across all 493 Gen 4 Pokémon
+                    </figcaption>
+                </div>
+                <p><strong>Observation 1:</strong> The histogram reveals a roughly bimodal distribution rather than a
+                    perfect bell curve. We observe a large cluster around 400–500 BST, representing the majority of
+                    fully evolved Pokémon, and a sharp spike at the 600 mark. The 600 BST mark is famously reserved for
+                    "pseudo-legendary" or mythical tier Pokémon. This suggests the developers intentionally designed
+                    heavy concentrations at specific power thresholds rather than perfectly smooth scaling.</p>
+
+                <div class="figure">
+                    <img src="images/bst_boxplot.png" alt="Base Stat Total (BST) by OU Status">
+                    <figcaption>Figure 2: BST distribution comparison between OU and non-OU Pokémon</figcaption>
+                </div>
+                <p><strong>Observation 2:</strong> The boxplot slicing BST by OU status decisively demonstrates that raw
+                    stats matter. The median BST for OU Pokémon is significantly higher than that of non-OU Pokémon. The
+                    entire interquartile range for the OU category sits comfortably above the 75th percentile of the
+                    non-OU category. However, the presence of long bottom whiskers and outliers proves an important
+                    point: <em>high stats are highly correlated with viability, but they are not strictly
+                        mandatory.</em></p>
+
+                <div class="figure">
+                    <img src="images/ou_types_bar.png" alt="Primary Types of OU Pokémon">
+                    <figcaption>Figure 3: Distribution of primary typings among OU-tier Pokémon</figcaption>
+                </div>
+                <p><strong>Observation 3:</strong> Examining the primary typings of OU Pokémon highlights an uneven
+                    distribution. Steel, Water, and Dragon are heavily represented at the top of the metagame. Steel is
+                    widely regarded as the best defensive typing due to its numerous resistances, which aligns perfectly
+                    with this high OU frequency. Conversely, types like Bug or Poison struggle to break into the top
+                    tier. This suggests that <em>excellent defensive typing can compensate for lower overall stats</em>,
+                    and poor typing can doom otherwise statistically strong Pokémon.</p>
+            </section>
+
+            <section class="article-section">
+                <h2 id="data-quality">Data Quality Considerations</h2>
+                <div class="callout callout-warning">
+                    <div class="callout-title">⚠️ Important Limitations</div>
+                    <ol>
+                        <li><strong>Usage ≠ Strength:</strong> A Pokémon might be heavily used because it's a fan
+                            favorite or it perfectly counters one overcentralizing threat, not because it is universally
+                            powerful.</li>
+                        <li><strong>Temporal Bias:</strong> The Smogon data fluctuates month-to-month based on metagame
+                            trends. Our snapshot represents the metagame <em>at the time of scraping</em>.</li>
+                        <li><strong>Missing Hidden Variables:</strong> Our dataset ignores Abilities and Movepools — two
+                            of the most critical aspects of competitive Pokémon viability.</li>
+                        <li><strong>Tier Availability:</strong> Lower tiers may not have crossed statistical confidence
+                            cutoffs, meaning <code>0.0</code> could sometimes represent "unavailable data" rather than
+                            "true zero usage."</li>
+                    </ol>
+                </div>
+                <p>Awareness of these constraints prevents us from making absolute statements about a Pokémon's strict
+                    objective strength, limiting us to statements about its <em>practical viability in a specific
+                        context</em>.</p>
+            </section>
+
+            <section class="article-section">
+                <h2 id="reproducibility">Reproducibility</h2>
+                <p>The completely automated, end-to-end data pipeline is fully available on GitHub. Anyone can pull the
+                    raw data, perform the cleaning, and generate the CSV themselves.</p>
+
+                <div class="callout callout-success">
+                    <div class="callout-title">🔗 GitHub Repository</div>
+                    <p><a href="https://github.com/mbgardin/PokeViability" target="_blank"
+                            rel="noopener"><strong>PokeViability Repository →</strong></a></p>
+                </div>
+
+                <h3>Steps to Reproduce</h3>
+                <ol>
+                    <li>Clone the repository listed above.</li>
+                    <li>Install the lightweight dependencies with <code>pip install -r requirements.txt</code>.</li>
+                    <li>Run the orchestration pipeline sequentially:
+                        <div class="code-block">
+                            <div class="code-block-header">
+                                <span class="code-block-lang">bash</span>
+                            </div>
+                            <pre><code>python src/pull_pokeapi.py
+python src/scrape_smogon.py
+python src/merge_data.py
+python src/clean_transform.py</code></pre>
+                        </div>
+                    </li>
+                    <li>Generate the charts with <code>python src/generate_visuals.py</code>.</li>
+                </ol>
+            </section>
+
+            <!-- Article Footer Navigation -->
+            <div class="article-nav">
+                <a href="tutorial.html" class="article-nav-link">
+                    <span class="article-nav-direction">← Previous</span>
+                    <span class="article-nav-title">Regex for Data Cleaning</span>
+                </a>
+                <a href="index.html#blog" class="article-nav-link article-nav-next">
+                    <span class="article-nav-direction">All Posts →</span>
+                    <span class="article-nav-title">Back to Blog</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    <span class="footer-logo"><span class="logo-bracket">&lt;</span>MG<span class="logo-bracket">
+                            /&gt;</span></span>
+                    Built with ☕ and curiosity · © 2026 Monte Gardiner
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
