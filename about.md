@@ -2,9 +2,11 @@
 
 ## Introduction
 
-Hi! I’m Monte Gardiner, an undergraduate student at Brigham Young University majoring in Statistics and Data Science. I’m especially interested in applied data science, statistical modeling, and building practical tools that turn data into actionable insights. I enjoy working at the intersection of analytics, technology, and real-world decision making.
+Hi! I'm Monte Gardiner, an undergraduate student at Brigham Young University majoring in Statistics and Data Science. I have a strong interest in applied analytics, statistical modeling, and machine learning. I enjoy working at the intersection of technical rigor and real-world impact, particularly on projects that translate data into clear, actionable insights.
 
-I’m currently focused on developing strong foundations in statistical theory while applying those skills through hands-on projects in data analysis, machine learning, and software development.
+Alongside my coursework, I have pursued projects in areas such as fraud detection, dynamic pricing, and automation — with an emphasis on building end-to-end solutions rather than isolated models. I am especially interested in applications that connect data science with business decision-making and operational efficiency. Many of these projects have had real-world application through my current position with BYU OIT.
+
+Originally from Mesa, Arizona, I value structured thinking, steady progress, and collaboration. I enjoy learning new tools, refining my technical skill set, and working with others who care about building things that are both thoughtful and useful. I'm also a big fan of music and classical voice.
 
 ![Photo of Monte Gardiner smiling outdoors](images/monte-headshot.jpg)
 
@@ -22,11 +24,11 @@ Relevant coursework includes statistical inference, regression, probability, dat
 
 ## Experience
 
-**IT Support Technician — Brigham Young University**  
-*Part-time*  
-- Provide technical support for hardware, software, and user systems  
-- Troubleshoot issues efficiently while communicating clearly with non-technical users  
-- Gain experience working in a professional, service-oriented technical environment  
+**BYU Office of IT — Brigham Young University**  
+*Current Position*  
+- Apply data science skills to real-world operational problems  
+- Work on projects involving fraud detection, dynamic pricing, and automation  
+- Build end-to-end solutions that connect analytics with business decision-making  
 
 **Data Science & Analytics Projects**  
 - Built data-driven projects involving fraud detection, dynamic pricing models, and exploratory data analysis  
@@ -37,16 +39,25 @@ Relevant coursework includes statistical inference, regression, probability, dat
 
 ## Skills
 
-- **Programming:** Python, R, SQL  
-- **Data Science:** Data cleaning, exploratory data analysis, regression, basic machine learning  
-- **Tools:** Git & GitHub, Pandas, NumPy, Jupyter, VS Code  
-- **Statistics:** Probability, inference, hypothesis testing, modeling  
+- **Programming:** Python, R, SQL, TypeScript, Node.js  
+- **Data Science:** Pandas, NumPy, scikit-learn, data visualization, statistical modeling  
+- **Tools:** Git & GitHub, GitHub Actions, Streamlit, Jupyter, VS Code  
+- **Statistics:** Probability, inference, hypothesis testing, regression, modeling  
+- **Full-Stack:** End-to-end ML pipelines, REST APIs, web development  
 - **Soft Skills:** Problem solving, clear communication, teamwork, adaptability  
+
+---
+
+## Current Focus
+
+- Building a strong applied data science portfolio  
+- End-to-end ML and analytics projects  
+- Translating models into decision-making tools  
 
 ---
 
 ## Get to Know Me
 
-Outside of academics, I enjoy staying active, hiking, and spending time with friends. I’m also involved in music and enjoy collaborative, creative environments. I like learning new tools, tackling challenging problems, and working on projects that have tangible real-world impact.
+Originally from Mesa, Arizona, I value structured thinking, steady progress, and collaboration. I enjoy learning new tools, tackling challenging problems, and working on projects that have tangible real-world impact. I'm also a big fan of music and classical voice, and I love collaborative, creative environments.
 
-I’m always open to learning, improving, and exploring how data can be used thoughtfully across different fields.
+I'm always open to learning, improving, and exploring how data can be used thoughtfully across different fields.

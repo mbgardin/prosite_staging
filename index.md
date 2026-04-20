@@ -1,8 +1,8 @@
 ---
-title: "Welcome to My Data Science Portfolio"
+title: "Monte Gardiner | Data Science Portfolio"
+redirect_to: "index.html"
 ---
 
-# Hello! I'm Monte Gardiner 👋
-## [About Me: Monte Gardiner](about.md)
-## [Tutorial: Regex for Data Cleaning](tutorial.md)
-## [Data Acquisition Blog Post: Competitive Pokemon in Gen 4](eda_blog_post.md)
+<meta http-equiv="refresh" content="0; url=index.html">
+
+[Click here if you are not redirected](index.html)
