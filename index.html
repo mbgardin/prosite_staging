@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Monte Gardiner — Data Science Portfolio. Undergraduate in Statistical Data Science at BYU specializing in machine learning, statistical modeling, and applied analytics.">
+        content="Monte Gardiner — Data Science & Machine Learning Portfolio. Statistics & Data Science major at BYU specializing in deep learning, anomaly detection, statistical modeling, and applied analytics.">
     <title>Monte Gardiner | Data Science Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,12 +20,12 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#hero" class="nav-logo">
-                <span class="logo-bracket">&lt;</span> MG<span class="logo-bracket"> /&gt;</span>
+                <span class="nav-logo-badge">MG</span> Monte Gardiner
             </a>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#blog" class="nav-link">Articles</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -42,52 +42,50 @@
         <div class="hero-bg-grid"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <p class="hero-greeting">Hello, I'm</p>
-                <h1 class="hero-name">Monte Gardiner</h1>
-                <div class="hero-title-wrapper">
-                    <span class="hero-title-static">Data Science</span>
-                    <span class="hero-title-dynamic" id="typed-text"></span>
-                    <span class="cursor">|</span>
+                <div class="hero-badge-pill">
+                    <span class="badge-dot"></span> B.S. Statistics & Data Science · BYU '27
                 </div>
+                <h1 class="hero-name">Monte Gardiner</h1>
+                <p class="hero-title-static">Data Scientist & Machine Learning Specialist</p>
                 <p class="hero-description">
-                    Statistics & Data Science major at BYU with a strong interest in applied analytics,
-                    statistical modeling, and machine learning — building end-to-end solutions that translate
-                    data into clear, actionable insights.
+                    Undergraduate in Statistical Data Science at Brigham Young University specializing in deep learning from first principles, financial fraud detection, and production data tools. Building end-to-end analytical solutions that translate data into actionable impact.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="https://github.com/mbgardin" class="btn btn-outline" target="_blank" rel="noopener">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    <a href="#projects" class="btn btn-primary">
+                        View Projects
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
-                        GitHub
+                    </a>
+                    <a href="https://github.com/mbgardin" class="btn btn-outline" target="_blank" rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub Profile
                     </a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="hero-image-wrapper">
                     <img src="images/monte-headshot.jpg" alt="Monte Gardiner" loading="eager">
-                    <div class="hero-image-ring"></div>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span>
-                        <span class="stat-label">Projects</span>
+                <div class="hero-badges-container">
+                    <div class="hero-badge-card">
+                        <span class="badge-icon">🎓</span>
+                        <div>
+                            <strong>Brigham Young University</strong>
+                            <span>Statistics & Data Science</span>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span>
-                        <span class="stat-label">Languages</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="2027">0</span>
-                        <span class="stat-label">Grad Year</span>
+                    <div class="hero-badge-card">
+                        <span class="badge-icon">💼</span>
+                        <div>
+                            <strong>BYU Office of IT</strong>
+                            <span>Data Systems & Analytics</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
         </div>
     </section>
 
@@ -95,77 +93,79 @@
     <section class="section about" id="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">// who i am</span>
+                <span class="section-tag">BACKGROUND & EXPERIENCE</span>
                 <h2 class="section-title">About Me</h2>
             </div>
             <div class="about-grid">
                 <div class="about-text">
                     <p class="about-lead">
-                        I'm a Statistics & Data Science major at <strong>Brigham Young University</strong> with a
-                        strong interest in applied analytics, statistical modeling, and machine learning.
+                        I am a Statistics & Data Science major at <strong>Brigham Young University</strong> specializing in machine learning engineering, statistical modeling, and applied quantitative analytics.
                     </p>
                     <p>
-                        I enjoy working at the intersection of technical rigor and real-world impact, particularly on
-                        projects that translate data into clear, actionable insights. Alongside my coursework, I've
-                        pursued projects in fraud detection, dynamic pricing, and automation — with an emphasis on
-                        building end-to-end solutions rather than isolated models. Many of these have had real-world
-                        application through my current position with BYU OIT.
+                        My work focuses on bridging mathematical theory with production-grade execution. I design end-to-end data systems — ranging from custom deep learning engines built from matrix mathematical principles to machine learning pipelines for fraud detection and financial modeling. Currently, I apply my skills in data analytics and automation within the BYU Office of IT.
                     </p>
                     <p>
-                        Originally from Mesa, Arizona, I value structured thinking, steady progress, and collaboration.
-                        I'm also a big fan of music and classical voice, and I love collaborative, creative
-                        environments.
+                        Originally from Mesa, Arizona, I approach data science with disciplined problem-solving, attention to detail, and a commitment to continuous growth. Outside of tech, I am passionate about music and classical voice performance.
                     </p>
                     <div class="about-details">
                         <div class="detail-item">
                             <span class="detail-icon">🎓</span>
                             <div>
                                 <strong>B.S. Statistics & Data Science</strong>
-                                <span>Brigham Young University · 2027</span>
+                                <span>Brigham Young University · Class of 2027</span>
                             </div>
                         </div>
                         <div class="detail-item">
                             <span class="detail-icon">💼</span>
                             <div>
                                 <strong>BYU Office of IT</strong>
-                                <span>Brigham Young University</span>
+                                <span>Data Engineering & Operations</span>
                             </div>
                         </div>
                         <div class="detail-item">
                             <span class="detail-icon">📍</span>
                             <div>
-                                <strong>Mesa, AZ → Provo, UT</strong>
-                                <span>Open to opportunities</span>
+                                <strong>Provo, Utah</strong>
+                                <span>Open to Industry & Research Opportunities</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="about-image-card">
-                        <div class="code-window">
-                            <div class="code-header">
-                                <span class="dot dot-red"></span>
-                                <span class="dot dot-yellow"></span>
-                                <span class="dot dot-green"></span>
-                                <span class="code-title">monte_gardiner.py</span>
-                            </div>
-                            <pre
-                                class="code-content"><code><span class="code-keyword">class</span> <span class="code-class">DataScientist</span>:
-    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(<span class="code-param">self</span>):
-        <span class="code-param">self</span>.name = <span class="code-string">"Monte Gardiner"</span>
-        <span class="code-param">self</span>.school = <span class="code-string">"BYU"</span>
-        <span class="code-param">self</span>.languages = [
-            <span class="code-string">"Python"</span>, <span class="code-string">"R"</span>, <span class="code-string">"SQL"</span>,
-            <span class="code-string">"TypeScript"</span>, <span class="code-string">"Node.js"</span>
-        ]
-        <span class="code-param">self</span>.focus = [
-            <span class="code-string">"End-to-End ML Pipelines"</span>,
-            <span class="code-string">"Statistical Modeling"</span>,
-            <span class="code-string">"Full-Stack Development"</span>
-        ]
 
-    <span class="code-keyword">def</span> <span class="code-func">motto</span>(<span class="code-param">self</span>):
-        <span class="code-keyword">return</span> <span class="code-string">"Data → Insights → Impact"</span></code></pre>
+                <div class="about-image">
+                    <div class="about-focus-card">
+                        <h3 class="focus-card-title">Core Technical Focus</h3>
+                        <div class="focus-grid">
+                            <div class="focus-item">
+                                <div class="focus-header">
+                                    <svg class="focus-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3"/>
+                                        <path d="M12 3v6M12 15v6M3 12h6M15 12h6"/>
+                                    </svg>
+                                    <h4>Neural Architectures</h4>
+                                </div>
+                                <p>Custom matrix propagation, gradient descent optimization, and deep learning framework implementation from first principles.</p>
+                            </div>
+
+                            <div class="focus-item">
+                                <div class="focus-header">
+                                    <svg class="focus-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    </svg>
+                                    <h4>Fraud & Anomaly Detection</h4>
+                                </div>
+                                <p>Class imbalance mitigation, precision-recall optimization, and unsupervised proximity isolation for high-risk transactional data.</p>
+                            </div>
+
+                            <div class="focus-item">
+                                <div class="focus-header">
+                                    <svg class="focus-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                    </svg>
+                                    <h4>Full-Stack Data Solutions</h4>
+                                </div>
+                                <p>PyPI package publishing, automated ETL data pipelines, interactive Streamlit analytics dashboards, and web data acquisition.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,33 +177,36 @@
     <section class="section projects" id="projects">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">// what i've built</span>
-                <h2 class="section-title">Featured Projects</h2>
+                <span class="section-tag">SELECTED PROJECTS</span>
+                <h2 class="section-title">Featured Work</h2>
             </div>
             <div class="projects-grid">
-                <!-- Project 1: BnBInsight -->
+                <!-- Project 1: BnBInsight (Featured) -->
                 <div class="project-card project-featured">
                     <div class="project-image">
                         <div class="project-image-placeholder"
-                            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                            <div class="project-icon">🏠</div>
+                            style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
+                            <div class="project-icon-svg">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                    <polyline points="9 22 9 12 15 12 15 22"/>
+                                </svg>
+                            </div>
                         </div>
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="https://github.com/mbgardin/BnBInsight" class="project-link" target="_blank"
                                     rel="noopener" title="Source Code">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                     </svg>
                                 </a>
                                 <a href="https://bnbinsight.streamlit.app/" class="project-link" target="_blank"
-                                    rel="noopener" title="Live Demo">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                        <polyline points="15 3 21 3 21 9" />
-                                        <line x1="10" y1="14" x2="21" y2="3" />
+                                    rel="noopener" title="Live Application">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
                                     </svg>
                                 </a>
                             </div>
@@ -213,48 +216,126 @@
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">Streamlit</span>
-                            <span class="tag">PyPI</span>
-                            <span class="tag">Machine Learning</span>
+                            <span class="tag">PyPI Package</span>
+                            <span class="tag">Market Analytics</span>
                         </div>
                         <h3 class="project-title">BnBInsight</h3>
                         <p class="project-description">
-                            A full-stack Airbnb pricing analysis tool published on PyPI. Features interactive
-                            Streamlit dashboards, statistical modeling of Utah rental markets, and neighborhood-level
-                            business license integration for comparative pricing analysis.
+                            A full-stack Airbnb pricing and market analysis toolkit published on PyPI. Features interactive Streamlit dashboards, statistical regression modeling of regional rental markets, and neighborhood business license integration for comparative rate optimization.
                         </p>
                         <div class="project-footer">
-                            <a href="https://mbgardin.github.io/BnBInsight/tutorial.html" class="project-docs-link"
-                                target="_blank" rel="noopener">
-                                📖 Documentation
+                            <a href="https://mbgardin.github.io/BnBInsight/tutorial.html" class="project-docs-link" target="_blank" rel="noopener">
+                                Documentation & Guides →
                             </a>
-                            <span class="project-status live">● Live</span>
+                            <span class="project-status live">● Live on PyPI</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: PokeViability -->
+                <!-- Project 2: Neural Network Engine from Scratch -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-image-placeholder"
-                            style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                            <div class="project-icon">⚡</div>
+                            style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);">
+                            <div class="project-icon-svg">
+                                <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.75">
+                                    <circle cx="6" cy="6" r="3"/>
+                                    <circle cx="6" cy="18" r="3"/>
+                                    <circle cx="18" cy="12" r="3"/>
+                                    <line x1="8.5" y1="7.5" x2="15.5" y2="10.5"/>
+                                    <line x1="8.5" y1="16.5" x2="15.5" y2="13.5"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/mbgardin/neuralnetwork" class="project-link" target="_blank"
+                                    rel="noopener" title="Source Code">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">NumPy</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Linear Algebra</span>
+                        </div>
+                        <h3 class="project-title">Neural Network Engine from Scratch</h3>
+                        <p class="project-description">
+                            A modular deep learning engine built directly from matrix calculus and linear algebra principles. Implements custom forward/backward propagation layers, activation functions (ReLU, Sigmoid, Softmax), gradient descent optimizers, and loss convergence tracking without high-level ML dependencies.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3: FraudDetector9000 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-image-placeholder"
+                            style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+                            <div class="project-icon-svg">
+                                <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.75">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M12 8v4M12 16h.01"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/mbgardin/FraudDetector9000" class="project-link" target="_blank"
+                                    rel="noopener" title="Source Code">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Scikit-Learn</span>
+                            <span class="tag">Fraud Detection</span>
+                            <span class="tag">Class Imbalance</span>
+                        </div>
+                        <h3 class="project-title">FraudDetector9000</h3>
+                        <p class="project-description">
+                            End-to-end machine learning pipeline built to identify high-risk fraudulent transactions in financial data streams. Integrates automated feature engineering, severe class imbalance mitigation, precision-recall curve tuning, and risk probability scoring.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 4: PokéViability Analysis -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-image-placeholder"
+                            style="background: linear-gradient(135deg, #172554 0%, #0f172a 100%);">
+                            <div class="project-icon-svg">
+                                <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.75">
+                                    <line x1="18" y1="20" x2="18" y2="10"/>
+                                    <line x1="12" y1="20" x2="12" y2="4"/>
+                                    <line x1="6" y1="20" x2="6" y2="14"/>
+                                </svg>
+                            </div>
                         </div>
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="https://github.com/mbgardin/PokeViability" class="project-link" target="_blank"
                                     rel="noopener" title="Source Code">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                     </svg>
                                 </a>
-                                <a href="docs/eda_blog_post.html" class="project-link" title="Blog Post">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                                        <polyline points="14 2 14 8 20 8" />
-                                        <line x1="16" y1="13" x2="8" y2="13" />
-                                        <line x1="16" y1="17" x2="8" y2="17" />
+                                <a href="docs/eda_blog_post.html" class="project-link" title="Read Case Study">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14 2 14 8 20 8"/>
+                                        <line x1="16" y1="13" x2="8" y2="13"/>
+                                        <line x1="16" y1="17" x2="8" y2="17"/>
                                     </svg>
                                 </a>
                             </div>
@@ -263,68 +344,35 @@
                     <div class="project-info">
                         <div class="project-tags">
                             <span class="tag">Python</span>
-                            <span class="tag">API</span>
+                            <span class="tag">PokéAPI</span>
+                            <span class="tag">Smogon Stats</span>
                             <span class="tag">EDA</span>
-                            <span class="tag">Web Scraping</span>
                         </div>
                         <h3 class="project-title">PokéViability Analysis</h3>
                         <p class="project-description">
-                            Data-driven exploration of competitive Pokémon viability in Generation 4.
-                            Built an automated pipeline combining PokéAPI and Smogon usage stats to
-                            analyze how base stats and typing predict competitive tier placement.
+                            Statistical evaluation of competitive viability in the Generation 4 metagame. Developed an automated data pipeline merging RESTful PokéAPI specifications with Smogon ladder usage rates to model base stat total thresholds and typing advantages.
                         </p>
                     </div>
                 </div>
 
-                <!-- Project 3: Earnings Surprise -->
+                <!-- Project 5: Forest-Based Anomaly Detection -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-image-placeholder"
-                            style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                            <div class="project-icon">📈</div>
-                        </div>
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/mbgardin" class="project-link" target="_blank"
-                                    rel="noopener" title="Source Code">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                    </svg>
-                                </a>
+                            style="background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);">
+                            <div class="project-icon-svg">
+                                <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.75">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                </svg>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Finance</span>
-                            <span class="tag">XGBoost</span>
-                            <span class="tag">Streamlit</span>
-                        </div>
-                        <h3 class="project-title">Earnings Surprise Analysis</h3>
-                        <p class="project-description">
-                            Investigated whether earnings surprise percentage is a significant factor in
-                            stock price movement using event studies, abnormal returns, VIF diagnostics,
-                            and XGBoost predictive modeling.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project 4: Anomaly Detection -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-image-placeholder"
-                            style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                            <div class="project-icon">🔍</div>
-                        </div>
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="https://github.com/mbgardin" class="project-link" target="_blank"
                                     rel="noopener" title="Source Code">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                     </svg>
                                 </a>
                             </div>
@@ -335,12 +383,11 @@
                             <span class="tag">Python</span>
                             <span class="tag">Isolation Forest</span>
                             <span class="tag">RF-GAP</span>
+                            <span class="tag">Unsupervised Learning</span>
                         </div>
                         <h3 class="project-title">Forest-Based Anomaly Detection</h3>
                         <p class="project-description">
-                            Research project using sparse proximity calculations from Isolation Forest and
-                            Rotation Forest models with the forestgap library to detect anomalies in
-                            synthetic and real-world datasets.
+                            Applied machine learning research inspecting sparse proximity matrices from Isolation Forest and Rotation Forest algorithms using the `forestgap` library to isolate outlier behavior across high-dimensional synthetic and real-world datasets.
                         </p>
                     </div>
                 </div>
@@ -352,30 +399,28 @@
     <section class="section blog" id="blog">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">// what i've written</span>
-                <h2 class="section-title">Blog & Tutorials</h2>
+                <span class="section-tag">TECHNICAL ARTICLES & GUIDES</span>
+                <h2 class="section-title">Writing & Case Studies</h2>
             </div>
             <div class="blog-grid">
                 <a href="docs/tutorial.html" class="blog-card">
-                    <div class="blog-card-image" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
                         <span class="blog-category">Tutorial</span>
                     </div>
                     <div class="blog-card-content">
                         <h3>Mastering Regular Expressions for Data Cleaning</h3>
-                        <p>Learn how to wield the power of regex in Python to transform messy, inconsistent data into
-                            clean, analysis-ready resources.</p>
-                        <span class="blog-read-more">Read article →</span>
+                        <p>A practical guide to wielding regex in Python to transform messy, inconsistent raw text data into clean, analysis-ready datasets.</p>
+                        <span class="blog-read-more">Read Article →</span>
                     </div>
                 </a>
                 <a href="docs/eda_blog_post.html" class="blog-card">
-                    <div class="blog-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <span class="blog-category">Data Acquisition</span>
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #172554 0%, #0f172a 100%);">
+                        <span class="blog-category">Data Science Case Study</span>
                     </div>
                     <div class="blog-card-content">
                         <h3>Competitive Pokémon Viability in Generation 4</h3>
-                        <p>A deep dive into the building blocks that determine competitive viability using PokéAPI data
-                            and Smogon tier statistics.</p>
-                        <span class="blog-read-more">Read article →</span>
+                        <p>A deep dive into statistical predictors of competitive metagame viability using PokéAPI endpoint data and Smogon usage tiers.</p>
+                        <span class="blog-read-more">Read Case Study →</span>
                     </div>
                 </a>
             </div>
@@ -386,14 +431,14 @@
     <section class="section skills" id="skills">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">// my toolkit</span>
-                <h2 class="section-title">Skills & Technologies</h2>
+                <span class="section-tag">TECHNICAL TOOLKIT</span>
+                <h2 class="section-title">Skills & Competencies</h2>
             </div>
             <div class="skills-grid">
                 <div class="skill-category">
                     <div class="skill-category-header">
-                        <div class="skill-icon">🐍</div>
-                        <h3>Programming</h3>
+                        <div class="skill-icon-badge">💻</div>
+                        <h3>Programming Languages</h3>
                     </div>
                     <div class="skill-items">
                         <div class="skill-chip">Python</div>
@@ -405,13 +450,13 @@
                 </div>
                 <div class="skill-category">
                     <div class="skill-category-header">
-                        <div class="skill-icon">📊</div>
-                        <h3>Data Science</h3>
+                        <div class="skill-icon-badge">⚡</div>
+                        <h3>Machine Learning & Data</h3>
                     </div>
                     <div class="skill-items">
                         <div class="skill-chip">Pandas</div>
                         <div class="skill-chip">NumPy</div>
-                        <div class="skill-chip">Scikit-learn</div>
+                        <div class="skill-chip">Scikit-Learn</div>
                         <div class="skill-chip">XGBoost</div>
                         <div class="skill-chip">Matplotlib</div>
                         <div class="skill-chip">Streamlit</div>
@@ -419,41 +464,41 @@
                 </div>
                 <div class="skill-category">
                     <div class="skill-category-header">
-                        <div class="skill-icon">📐</div>
-                        <h3>Statistics</h3>
+                        <div class="skill-icon-badge">📐</div>
+                        <h3>Statistical Methodology</h3>
                     </div>
                     <div class="skill-items">
-                        <div class="skill-chip">Regression</div>
+                        <div class="skill-chip">Regression Analysis</div>
                         <div class="skill-chip">Hypothesis Testing</div>
-                        <div class="skill-chip">Probability</div>
-                        <div class="skill-chip">Inference</div>
-                        <div class="skill-chip">EDA</div>
+                        <div class="skill-chip">Probability Models</div>
+                        <div class="skill-chip">Statistical Inference</div>
+                        <div class="skill-chip">Exploratory Data Analysis</div>
                     </div>
                 </div>
                 <div class="skill-category">
                     <div class="skill-category-header">
-                        <div class="skill-icon">🛠️</div>
-                        <h3>Tools & DevOps</h3>
+                        <div class="skill-icon-badge">🛠️</div>
+                        <h3>Tools & Infrastructure</h3>
                     </div>
                     <div class="skill-items">
                         <div class="skill-chip">Git & GitHub</div>
                         <div class="skill-chip">GitHub Actions</div>
-                        <div class="skill-chip">Jupyter</div>
+                        <div class="skill-chip">Jupyter Notebooks</div>
                         <div class="skill-chip">VS Code</div>
-                        <div class="skill-chip">PyPI</div>
+                        <div class="skill-chip">PyPI Publishing</div>
                         <div class="skill-chip">Quarto</div>
                     </div>
                 </div>
                 <div class="skill-category">
                     <div class="skill-category-header">
-                        <div class="skill-icon">🌐</div>
-                        <h3>Full-Stack</h3>
+                        <div class="skill-icon-badge">🌐</div>
+                        <h3>Engineering & APIs</h3>
                     </div>
                     <div class="skill-items">
-                        <div class="skill-chip">Streamlit</div>
-                        <div class="skill-chip">Data Visualization</div>
-                        <div class="skill-chip">REST APIs</div>
-                        <div class="skill-chip">Web Scraping</div>
+                        <div class="skill-chip">Streamlit Applications</div>
+                        <div class="skill-chip">REST API Architecture</div>
+                        <div class="skill-chip">Automated Web Scraping</div>
+                        <div class="skill-chip">ETL Data Pipelines</div>
                     </div>
                 </div>
             </div>
@@ -464,37 +509,32 @@
     <section class="section contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">// let's connect</span>
+                <span class="section-tag">CONNECT</span>
                 <h2 class="section-title">Get In Touch</h2>
             </div>
             <div class="contact-content">
                 <p class="contact-text">
-                    I'm always open to discussing data science, new projects, research collaborations,
-                    or internship opportunities. Feel free to reach out!
+                    I am actively seeking machine learning, data engineering, and statistical analytics opportunities. Feel free to reach out for collaborations or inquiries.
                 </p>
                 <div class="contact-links">
                     <a href="https://github.com/mbgardin" class="contact-card" target="_blank" rel="noopener">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
                         <span class="contact-card-label">GitHub</span>
                         <span class="contact-card-value">@mbgardin</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/monte-gardiner-88300535a" class="contact-card" target="_blank"
-                        rel="noopener">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    <a href="https://www.linkedin.com/in/monte-gardiner-88300535a" class="contact-card" target="_blank" rel="noopener">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                         <span class="contact-card-label">LinkedIn</span>
                         <span class="contact-card-value">Monte Gardiner</span>
                     </a>
                     <a href="mailto:monte.b.gardiner@gmail.com" class="contact-card">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                            <polyline points="22,6 12,13 2,6" />
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
                         </svg>
                         <span class="contact-card-label">Email</span>
                         <span class="contact-card-value">monte.b.gardiner@gmail.com</span>
@@ -509,58 +549,21 @@
         <div class="container">
             <div class="footer-content">
                 <p class="footer-text">
-                    <span class="footer-logo"><span class="logo-bracket">&lt;</span> MG<span class="logo-bracket">
-                            /&gt;</span></span>
-                    Built with excitement and curiosity · © 2026 Monte Gardiner
+                    <span class="footer-logo">MG</span> Monte Gardiner · Statistical Data Science & Machine Learning Portfolio
                 </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // ===== Typing Effect =====
-        const phrases = ['Student', 'Builder', 'Analyst', 'Problem Solver'];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typedText = document.getElementById('typed-text');
-
-        function type() {
-            const current = phrases[phraseIndex];
-            if (isDeleting) {
-                typedText.textContent = current.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typedText.textContent = current.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === current.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-        type();
-
         // ===== Navbar scroll effect =====
         const navbar = document.getElementById('navbar');
-        let lastScroll = 0;
         window.addEventListener('scroll', () => {
-            const currentScroll = window.scrollY;
-            if (currentScroll > 50) {
+            if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
-            lastScroll = currentScroll;
         });
 
         // ===== Mobile nav toggle =====
@@ -605,36 +608,6 @@
         document.querySelectorAll('.section-header, .project-card, .blog-card, .skill-category, .contact-card, .about-text, .about-image, .detail-item').forEach(el => {
             observer.observe(el);
         });
-
-        // ===== Counter animation =====
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.stat-number');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        const duration = 2000;
-                        const step = target / (duration / 16);
-                        let current = 0;
-
-                        const updateCounter = () => {
-                            current += step;
-                            if (current < target) {
-                                counter.textContent = Math.ceil(current);
-                                requestAnimationFrame(updateCounter);
-                            } else {
-                                counter.textContent = target;
-                            }
-                        };
-                        updateCounter();
-                    });
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const heroStats = document.querySelector('.hero-stats');
-        if (heroStats) counterObserver.observe(heroStats);
 
         // ===== Active nav link highlight =====
         const sections = document.querySelectorAll('.section');
